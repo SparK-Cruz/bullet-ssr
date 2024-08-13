@@ -1,0 +1,33 @@
+{
+  "name": "bullet-ssr",
+  "version": "1.0.0",
+  "description": "WebComponent-ready framework with server-side-rendering capabilities",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "node --test test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SparK-Cruz/bullet-ssr.git"
+  },
+  "keywords": [
+    "SSR",
+    "Server-side",
+    "Rendering",
+    "Web",
+    "Component",
+    "ESM",
+    "Module",
+    "Framework"
+  ],
+  "author": "Roger Cruz <dev.rogercruz@gmail.com>",
+  "license": "CC0-1.0",
+  "bugs": {
+    "url": "https://github.com/SparK-Cruz/bullet-ssr/issues"
+  },
+  "homepage": "https://github.com/SparK-Cruz/bullet-ssr#readme",
+  "dependencies": {
+    "jsdom": "^24.1.1"
+  }
+}
