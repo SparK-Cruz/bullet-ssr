@@ -6,6 +6,11 @@ export function getRouter(root) {
             path: '/',
             component: 'hello.js',
             template: 'app.html',
+        },
+        {
+            path: '/about',
+            component: 'about.js',
+            template: 'app.html',
         }
     ], root ?? '');
 }

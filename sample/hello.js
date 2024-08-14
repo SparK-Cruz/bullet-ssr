@@ -4,24 +4,23 @@ const xhtml = `
     <template>
         Hello World! {{name}}
         <input type="text" data-bind="name" />
-        <input type="text" placeholder="{{name}}" />
+        <input type="text" placeholder="This: {{name}} updates too" />
         <button data-on="click:callMe">Click Me!</button>
+        <a href="/about">A link to somewhere</a>
     </template>
 `;
 
 export default await frag('sample-hello', xhtml, {
-    async data() {
-        const obj = {
-            name: "foo"
-        };
-
-        window.data = obj;
-        return obj;
-    },
+    data: async () => ({
+        name: "foo"
+    }),
     callMe(e) {
-        console.log("Hello was clicked!");
+        console.log("Hello was clicked!", this.data.name);
+
+        this.data.name = 'nemo';
     },
     constructor() {
+        window.data = this.data;
         // this.shadow.querySelector('button').click();
     }
 });

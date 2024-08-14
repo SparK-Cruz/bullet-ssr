@@ -4,10 +4,10 @@
         <meta charset="utf-8" />
     </head>
     <body>
-        <div id="app-root"></div>
+        <a href="/">home</a>
+        <slot id="app-root"></slot>
         <script type="module">
             import { getRouter } from "/app.js";
-
             getRouter().go(window.location.pathname);
         </script>
     </body>
