@@ -28,6 +28,7 @@
   },
   "homepage": "https://github.com/SparK-Cruz/bullet-ssr#readme",
   "dependencies": {
-    "jsdom": "^24.1.1"
+    "jsdom": "^24.1.1",
+    "punycode": "^2.3.1"
   }
 }
