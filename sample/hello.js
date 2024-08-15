@@ -1,11 +1,14 @@
-import { frag, window } from "./lib/index.js";
+import { frag, html } from "bullet-ssr";
 
-const xhtml = `
+// don't forget to import your components
+import "./nemo.js";
+
+const xhtml = html`
     <template>
-        Hello World! {{name}}
+        <span>Hello World! {{name}}</span>
         <input type="text" data-bind="name" />
         <input type="text" placeholder="This: {{name}} updates too" />
-        <button data-on="click:callMe">Click Me!</button>
+        <sample-nemo data-on="nemo-click:callMe" data-bind="name"><slot>Where's nemo?</slot></sample-nemo>
         <a href="/about">A link to somewhere</a>
     </template>
 `;
@@ -15,12 +18,11 @@ export default await frag('sample-hello', xhtml, {
         name: "foo"
     }),
     callMe(e) {
-        console.log("Hello was clicked!", this.data.name);
+        console.log("Nemo was clicked! Value was:", this.data.name);
 
         this.data.name = 'nemo';
     },
-    constructor() {
-        window.data = this.data;
-        // this.shadow.querySelector('button').click();
+    async constructor() {
+        await import('./nemo.js');
     }
 });

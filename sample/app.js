@@ -1,4 +1,4 @@
-import { Router } from "./lib/index.js";
+import { Router } from "bullet-ssr";
 
 export function getRouter(root) {
     return new Router([
@@ -6,6 +6,12 @@ export function getRouter(root) {
             path: '/',
             component: 'hello.js',
             template: 'app.html',
+            children: [
+                {
+                    path:'label/(?<label>.*)',
+                    component: 'label.js',
+                }
+            ]
         },
         {
             path: '/about',

@@ -4,18 +4,28 @@ import * as http from "node:http";
 import { getRouter } from "./app.js";
 import path from "node:path";
 
+
+const USE_SSR = true;
+
+const router = getRouter(process.cwd());
+
 http.createServer(async (req, res) => {
-    if (req.method === 'head') {
+    if (req.method.toLowerCase() === 'options') {
         res.end();
         return;
     }
 
     const pathname = req.url;
-    let relative = path.relative(path.resolve('.'), './' + pathname);
 
-    const {status, content} = await getRouter(process.cwd()).go(relative);
-    // const status = 404;
-    // relative ||= 'client.html';
+    let relative = 'client.html';
+    let status = 404;
+    let content = null;
+    let type = 'text/html';
+
+    if (USE_SSR) {
+        relative = path.relative(path.resolve('.'), './' + pathname);
+        ({status, content, type} = await router.go(relative));
+    }
 
     if (status === 404) {
         try {
@@ -37,6 +47,7 @@ http.createServer(async (req, res) => {
         }
     }
 
+    res.appendHeader('Content-Type', type);
     res.statusCode = status;
     res.end(content, "utf-8");
 }).listen(31911);
