@@ -2,10 +2,9 @@ import fs from "node:fs/promises";
 import * as http from "node:http";
 
 import { getRouter } from "./app.js";
-import path from "node:path";
 
 
-const USE_SSR = true;
+const USE_SSR = process.env.USE_SSR != 'false';
 
 const router = getRouter(process.cwd());
 
@@ -42,8 +41,9 @@ http.createServer(async (req, res) => {
         return;
     }
 
-    if (!USE_SSR) {
+    if (!USE_SSR && req.url !== '/bullet-ssr-bundle') {
         handleStatic('client.html', res);
+        return;
     }
 
     await router.go(req.url, res);
