@@ -2,6 +2,7 @@ import { frag, html } from "bullet-ssr";
 
 const xhtml = html`
     <template>
+        <a href="/">home</a>
         <p>This project could've been developed by {{authorPre}} {{author}}</p>
         <p>Groceries:</p>
         <ul>
