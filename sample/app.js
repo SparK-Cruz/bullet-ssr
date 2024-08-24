@@ -17,6 +17,16 @@ export function getRouter(root) {
             path: '/about',
             component: 'about.js',
             template: 'app.html',
-        }
+        },
+        {
+            path: '/loops',
+            component: 'loops.js',
+            template: 'app.html',
+        },
+        {
+            path: '/groceries',
+            component: 'groceries.js',
+            template: 'app.html',
+        },
     ], root ?? '');
 }
