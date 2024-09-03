@@ -13,6 +13,7 @@ const xhtml = html`
     </template>
 `;
 
+
 export default await frag('sample-hello', xhtml, {
     data: async () => ({
         name: "foo"
@@ -22,7 +23,6 @@ export default await frag('sample-hello', xhtml, {
 
         this.data.name = 'nemo';
     },
-    async constructor() {
-        await import('./nemo.js');
+    constructor() {
     }
 });

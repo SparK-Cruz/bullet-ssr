@@ -10,11 +10,9 @@ const xhtml = html`
 
 export default await frag('sample-nemo', xhtml, {
     data: () => ({
+        default: 'nemo',
         counter: 0,
     }),
-    constructor() {
-        frag.$next(() => this.data.default = 'nemo');
-    },
     tellThem() {
         console.log("telling...");
         const event = new Event('nemo-click');

@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "node --test test"
+    "test": "node --test test/*.test.js"
   },
   "repository": {
     "type": "git",
@@ -30,6 +30,7 @@
   "dependencies": {
     "esbuild": "^0.23.0",
     "jsdom": "^24.1.1",
+    "pretty": "^2.0.0",
     "punycode": "^2.3.1"
   }
 }
