@@ -6,7 +6,7 @@ import { getRouter } from "./app.js";
 
 const USE_SSR = process.env.USE_SSR != 'false';
 
-const router = getRouter(process.cwd());
+const router = getRouter(`file://${process.cwd()}`);
 
 async function handleStatic(url, res) {
     let fileContent = null;
