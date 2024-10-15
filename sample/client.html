@@ -1,5 +1,5 @@
 <script type="importmap">{"imports":{"bullet-ssr":"/bullet-ssr-bundle"}}</script>
 <script type="module">
     import { getRouter } from "/app.js";
-    getRouter().go(window.location.pathname);
+    getRouter().go({url: window.location.pathname});
 </script>

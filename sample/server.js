@@ -46,6 +46,6 @@ http.createServer(async (req, res) => {
         return;
     }
 
-    await router.go(req.url, res);
+    await router.go(req, res);
 }).listen(31911);
 console.log('Listening on http://localhost:31911/');

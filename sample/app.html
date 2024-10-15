@@ -13,7 +13,7 @@
         <slot id="app-root"></slot>
         <script type="module">
             import { getRouter } from "/app.js";
-            getRouter().go(window.location.pathname);
+            getRouter().go({url: window.location.pathname});
         </script>
     </body>
 </html>
